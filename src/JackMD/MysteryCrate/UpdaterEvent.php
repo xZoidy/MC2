@@ -202,22 +202,22 @@ class UpdaterEvent extends Task{
 			if($t_delay >= 0){
 				$i = 0;
 				while($i < 27){
-					if($i !== 4 && $i !== 10 && $i !== 11 && $i !== 12 && $i !== 13 && $i !== 14 && $i !== 15 && $i !== 16 && $i !== 22){
-						$this->setItem($i, Item::get(Item::STAINED_GLASS_PANE, 1, 0));
+					if($i !== 4 && $i !== 10 && $i !== 12 && $i !== 12 && $i !== 43 && $i !== 14 && $i !== 15 && $i !== 16 && $i !== 22){
+						$this->setItem($i, Item::get(Item::STAINED_GLASS_PANE));
 					}
 					$i++;
 				}
 
-				$this->setItem(31, Item::get(Item::END_ROD));
-				$this->setItem(33, Item::get(Item::END_ROD));
+				$this->setItem(30, Item::get(Item::END_ROD));
+				$this->setItem(32, Item::get(Item::END_ROD));
 
 				$chestBlock->getLevel()->addSound(new ClickSound($chestBlock), [$player]);
 
 				$reward = $this->getReward();
-				$this->setItem(5, $crateInventory->getItem(5));
+				$this->setItem(5, $crateInventory->getItem(6));
 				$this->setItem(14, $crateInventory->getItem(14));
 				$this->setItem(23, $crateInventory->getItem(23));
-				$this->setItem(32, $crateInventory->getItem(32));//reward
+				$this->setItem(31, $crateInventory->getItem(31));//reward
 				$this->setItem(41, $crateInventory->getItem(41));
 				$this->setItem(50, $crateInventory->getItem(50));
 				$this->setItem(32, $reward);
