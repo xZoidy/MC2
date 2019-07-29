@@ -78,7 +78,7 @@ class UpdaterEvent extends Task{
 		$this->chestBlock = $chestBlock;
 		$this->t_delay = $t_delay;
 
-		$crateMenu = InvMenu::create(InvMenu::TYPE_CHEST);
+		$crateMenu = InvMenu::create(InvMenu::TYPE_DOUBLE_CHEST);
 		$crateMenu->readonly();
 		$crateMenu->setInventoryCloseListener([$this, 'closeInventory']);
 		$crateMenu->send($player);
@@ -203,33 +203,33 @@ class UpdaterEvent extends Task{
 				$i = 0;
 				while($i < 27){
 					if($i !== 4 && $i !== 10 && $i !== 11 && $i !== 12 && $i !== 13 && $i !== 14 && $i !== 15 && $i !== 16 && $i !== 22){
-						$this->setItem($i, Item::get(Item::VINE));
+						$this->setItem($i, Item::get(Item::VINE, ITEM::STONE));
 					}
 					$i++;
 				}
 
-				$this->setItem(4, Item::get(Item::END_ROD));
-				$this->setItem(22, Item::get(Item::END_ROD));
+				$this->setItem(31, Item::get(Item::END_ROD));
+				$this->setItem(33, Item::get(Item::END_ROD));
 
 				$chestBlock->getLevel()->addSound(new ClickSound($chestBlock), [$player]);
 
 				$reward = $this->getReward();
-				$this->setItem(10, $crateInventory->getItem(11));
-				$this->setItem(11, $crateInventory->getItem(12));
-				$this->setItem(12, $crateInventory->getItem(13));
-				$this->setItem(13, $crateInventory->getItem(14));//reward
-				$this->setItem(14, $crateInventory->getItem(15));
-				$this->setItem(15, $crateInventory->getItem(16));
-				$this->setItem(16, $reward);
+				$this->setItem(5, $crateInventory->getItem(5));
+				$this->setItem(14, $crateInventory->getItem(14));
+				$this->setItem(23, $crateInventory->getItem(23));
+				$this->setItem(32, $crateInventory->getItem(32));//reward
+				$this->setItem(41, $crateInventory->getItem(41));
+				$this->setItem(50, $crateInventory->getItem(50));
+				$this->setItem(32, $reward);
 			}
 
 			if($t_delay == -1){
-				$this->setItem(10, Item::get(Item::AIR));
-				$this->setItem(11, Item::get(Item::AIR));
-				$this->setItem(12, Item::get(Item::AIR));
+				$this->setItem(5, Item::get(Item::AIR));
 				$this->setItem(14, Item::get(Item::AIR));
-				$this->setItem(15, Item::get(Item::AIR));
-				$this->setItem(16, Item::get(Item::AIR));
+				$this->setItem(23, Item::get(Item::AIR));
+			//	$this->setItem(32, Item::get(Item::AIR));
+				$this->setItem(41, Item::get(Item::AIR));
+				$this->setItem(50, Item::get(Item::AIR));
 
 				$reward = $crateInventory->getItem(13);
 
