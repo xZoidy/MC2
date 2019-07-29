@@ -203,7 +203,7 @@ class UpdaterEvent extends Task{
 				$i = 0;
 				while($i < 27){
 					if($i !== 4 && $i !== 10 && $i !== 11 && $i !== 12 && $i !== 13 && $i !== 14 && $i !== 15 && $i !== 16 && $i !== 22){
-						$this->setItem($i, Item::get(Item::VINE, ITEM::STONE));
+						$this->setItem($i, Item::get(Item::STAINED_GLASS_PANE, 1, 0));
 					}
 					$i++;
 				}
